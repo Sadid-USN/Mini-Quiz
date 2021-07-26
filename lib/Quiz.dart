@@ -14,22 +14,74 @@ int _currentQuestionIndex = 0;
 class _QuizState extends State<Quiz> {
   List questions = [
     Question(
-        '9 сентября 1991 года на сессии Шурои Оли Республики Таджикистан (Верховного Совета Республики Таджикистан) было принято Постановление и Заявление «О государственной независимости Республики Таджикистан»',
+      'Таджикистан (тадж. Тоҷикистон), официальное название — Респу́блика Таджикиста́н (тадж. Ҷумҳурии Тоҷикистон, перс.\n (جمهوری تاجیکستان‎) — государство в Центральной Азии, расположенное в предгорьях Памира и не имеющее выхода к морю?',
+      true,
+    ),
+    Question(
+        'Таджикистан  это наименьшее по площади государство Средней Азии. Граничит с Узбекистаном на западе и северо-западе, с Киргизией — на севере, с Китаем — на востоке, с Афганистаном — на юге?',
         true),
     Question(
-        '27 июня 1997 года в Кремле на девятой по счёту встрече между представителями противоборствующих сторон (Правительством РТ и Объединённой таджикской оппозицией) при посредничестве ООН было подписано окончательное мирное соглашение.',
+        'Таджикистан — единственное персоязычное государство в бывшей советской Средней Азии. Большинство населения Таджикистана исповедует ислам суннитского толка.',
         true),
+    Question(
+        'Таджикистан богат природными ресурсами, но так как 93% территории республики занимают горы, их добыча затруднена слаборазвитой инфраструктурой. Таджикистан расположен вдали от основных евразийских транспортных потоков.',
+        true),
+    Question(
+        'Со времён Ахеменидов название «Иран» (на таджикском — Эрон) закрепилось за государствами западно-иранских народов, создавших мощные централизованные империи. Erānšahr (Эроншаҳр) происходит от авестийского Airyānam Xšaθram. Авестийский дифтонг ai трансформировался в среднеперсидский гласный е. Восточно-иранские народы.',
+        true),
+    Question(
+        'Непосредственные предки таджиков, назвали свою землю «Туран» (на таджикском — Турон). Страна восточно-иранских народов — Туран — была политически раздроблена на 4 отдельных государства: Согд, Бактрия, Хорезм, Маргиана. Предками таджиков были также кочевые племена саков.',
+        true),
+    Question(
+        'Условной границей между Ираном и Тураном в древние времена была сначала Сырдарья, а в более поздние времена — Амударья',
+        true),
+    Question(
+        'Основной сток Амударьи формируется на территории Таджикистана (80 %) и частично в Северном Афганистане. Затем река протекает вдоль границы Афганистана с Узбекистаном, пересекает Туркмению и вновь возвращается в Узбекистан и впадает в Аральское море. В настоящее время воды реки не доходят до Аральского моря, так как забираются на орошение.',
+        true),
+    Question(
+        'Первые государственные образования, существовавшие на территории современного Таджикистана — Бактрия и Согдиана, появившиеся ещё до начала нашей эры.',
+        true),
+    Question(
+        'Ба́ктрия(Бактриана от перс. باختر ,بلخ‎; тадж. Балх, Бохтар) — историческая область, на сопредельных территориях современных Таджикистана, Узбекистана и Афганистана, между горной цепью Гиндукуш на юге и Ферганской долиной на севере.',
+        true),
+    Question(
+        'Столицей страны был город Бактры на территории северного Афганистана. Бактрийцы говорили на вымершем бактрийском — иранском языке индо-иранской подгруппы индоевропейской языковой семьи',
+        true),
+    Question(
+        'Индоевропе́йские языки́ — самая распространённая в мире языковая семья. Представлена на всех обитаемых континентах Земли, число носителей превышает 2,5 млрд. Согласно воззрениям некоторых современных языковедов, является частью макросемьи ностратических языков',
+        true),
+    Question(
+        'Современные таджики, юг Таджикистана и север Афганистана являются потомками древних бактрийцев',
+        true),
+    Question(
+      'Таджики чистично относятся к тюркскому народу.',
+      false,
+    ),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('True Citizen'),
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey,
-      ),
-      backgroundColor: Colors.blueGrey,
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                    'https://source.unsplash.com/random?tajikistan'),
+                fit: BoxFit.cover),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF73AEF5),
+                  Color(0xFF61A4F1),
+                  Color(0xFF478DE0),
+                  Color(0xFF398AE5),
+                ],
+                stops: [
+                  0.1,
+                  0.4,
+                  0.7,
+                  0.9
+                ])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -43,32 +95,56 @@ class _QuizState extends State<Quiz> {
             Padding(
               padding: EdgeInsets.all(15.0),
               child: Container(
+                alignment: Alignment.center,
+                height: 320,
                 decoration: BoxDecoration(
+                    color: Colors.black38,
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
                         color: Colors.white, style: BorderStyle.solid)),
-                height: 230.0,
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    questions[_currentQuestionIndex].questionText,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white),
-                  ),
-                ),
+                child: ListView(
+                    padding: EdgeInsets.all(20),
+                    physics: ClampingScrollPhysics(),
+                    children: [
+                      Text(
+                        questions[_currentQuestionIndex].questionText,
+
+                        //textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ]),
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
+                    height: 40,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Colors.blue.withOpacity(0.8)),
+                    child: BouncingWidget(
+                        onPressed: () {
+                          _previousQuestion();
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white70,
+                          size: 30,
+                        ))),
+                Container(
                   height: 40,
-                  width: 70,
+                  width: 80,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.green),
+                      color: Colors.green.withOpacity(0.7)),
                   child: Center(
                     child: BouncingWidget(
                       scaleFactor: 1.5,
@@ -77,10 +153,10 @@ class _QuizState extends State<Quiz> {
                       },
                       duration: Duration(milliseconds: 100),
                       child: Text(
-                        'TRUE',
+                        'Правда',
                         style: TextStyle(
                             fontSize: 22,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
                     ),
@@ -88,20 +164,22 @@ class _QuizState extends State<Quiz> {
                 ),
                 Container(
                   height: 40,
-                  width: 70,
+                  width: 80,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.green),
+                      color: Colors.green.withOpacity(0.7)),
                   child: Center(
                     child: BouncingWidget(
                       scaleFactor: 1.5,
-                      onPressed: () { _checkAnswer(false);},
+                      onPressed: () {
+                        _checkAnswer(false);
+                      },
                       duration: Duration(milliseconds: 100),
                       child: Text(
-                        'FALSE',
+                        'Ложь',
                         style: TextStyle(
                             fontSize: 22,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
                     ),
@@ -112,7 +190,7 @@ class _QuizState extends State<Quiz> {
                     width: 70,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.green.shade400),
+                        color: Colors.blue.withOpacity(0.8)),
                     child: BouncingWidget(
                         onPressed: () {
                           _nextQuestion();
@@ -121,7 +199,7 @@ class _QuizState extends State<Quiz> {
                           Icons.arrow_forward,
                           color: Colors.white70,
                           size: 30,
-                        )))
+                        ))),
               ],
             ),
             Spacer(),
@@ -134,15 +212,64 @@ class _QuizState extends State<Quiz> {
   _checkAnswer(bool userChoice) {
     if (userChoice == questions[_currentQuestionIndex].isCorrect) {
       // correct answer
-      debugPrint('Great your answer is correct');
-    }else{
-      debugPrint('Youre answer is wrong');
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          action: SnackBarAction(
+            label: 'Скрыть',
+            textColor: Colors.white,
+            onPressed: () {
+              _updateQustion();
+            },
+          ),
+          //padding: EdgeInsets.only(right: 10, left: 10),
+
+          behavior: SnackBarBehavior.floating,
+          elevation: 8,
+          backgroundColor: Colors.green.shade400,
+          duration: Duration(seconds: 4),
+          content: Text(
+            'Правильно!',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+            textAlign: TextAlign.start,
+          ),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          action: SnackBarAction(
+            label: 'Скрыть',
+            textColor: Colors.white,
+            onPressed: () {},
+          ),
+          behavior: SnackBarBehavior.floating,
+          elevation: 8,
+          backgroundColor: Colors.red.shade400,
+          duration: Duration(seconds: 4),
+          content: Text(
+            'Неправильно!',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+            textAlign: TextAlign.start,
+          ),
+        ),
+      );
     }
   }
 
-  _nextQuestion() {
+  _updateQustion() {
     setState(() {
       _currentQuestionIndex = (_currentQuestionIndex + 1) % questions.length;
+    });
+  }
+
+  _nextQuestion() {
+    _updateQustion();
+  }
+
+  _previousQuestion() {
+    setState(() {
+      _currentQuestionIndex = (_currentQuestionIndex - 1) % questions.length;
     });
   }
 }
