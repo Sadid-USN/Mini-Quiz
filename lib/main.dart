@@ -17,8 +17,10 @@ ThemeData? _buildAppTheme() {
     scaffoldBackgroundColor: secondaryBackgroundWhite,
     cardColor: secondaryBrownLight,
     inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-            borderSide: BorderSide(color: primeryBrownLight))),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: primeryBrownLight),
+      ),
+    ),
     textTheme: GoogleFonts.ptSerifTextTheme(),
   );
 }

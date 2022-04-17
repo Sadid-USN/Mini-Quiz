@@ -10,21 +10,6 @@ class ListViewOfMovies extends StatefulWidget {
 class _ListViewOfMoviesState extends State<ListViewOfMovies> {
   final List<ModelMovie> movieList = ModelMovie.getMovies();
 
-  final List movies = [
-    'Terminator',
-    'Matrix',
-    'The Shawshank Redemption',
-    'The Thing',
-    'The Butterfly Effect',
-    'Inception',
-    'Home Alone',
-    'Mousehunt',
-    'The Green Mile',
-    'The Mist',
-    'Silent Hill',
-    'Saving Private Ryan',
-    ' 30 Days of Night'
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +24,10 @@ class _ListViewOfMoviesState extends State<ListViewOfMovies> {
           itemCount: movieList.length,
           itemBuilder: (BuildContext context, int index) {
             return Stack(children: [
-              movieCard(movieList[index], context),
+              movieCard(
+                movieList[index],
+                context,
+              ),
               Positioned(top: 20.0, child: movieImage(movieList[index].poster)),
             ]);
           },
@@ -154,4 +142,3 @@ class NewScreenMovieDetails extends StatelessWidget {
         ));
   }
 }
-
