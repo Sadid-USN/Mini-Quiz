@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.biz_card">
    <application
-        android:label="biz_card"
+        android:label="Taj History"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

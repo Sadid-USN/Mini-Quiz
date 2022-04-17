@@ -1,4 +1,5 @@
 import 'package:biz_card/models/model_movie.dart';
+import 'package:biz_card/ui/movie_ui.dart';
 import 'package:flutter/material.dart';
 
 class ListViewOfMovies extends StatefulWidget {
@@ -100,7 +101,9 @@ class _ListViewOfMoviesState extends State<ListViewOfMovies> {
         ),
         onTap: () =>
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return NewScreenMovieDetails();
+              return NewScreenMovieDetails(
+                movie: movie,
+              );
             })));
   }
 
@@ -130,52 +133,25 @@ class NewScreenMovieDetails extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black87,
-          title: Text('Muvies'),
+          title: Text('${movie?.title}'),
           centerTitle: true,
         ),
         body: ListView(
           children: [
             MovieDetails(
-              thumbnail: movie?.images[0],
+              thumbnail: movie?.images[2],
+            ),
+            MovieDetailsHeaderWithPoster(
+              movie: movie,
+            ),
+            MovieCast(
+              movie: movie,
+            ),
+            AllMovieImages(
+              images: movie?.images,
             )
           ],
         ));
   }
 }
 
-class MovieDetails extends StatelessWidget {
-  final String? thumbnail;
-
-  MovieDetails({
-    Key? key,
-    this.thumbnail,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: 190.0,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage('$thumbnail'), fit: BoxFit.cover))),
-            Icon(
-              Icons.play_circle_outline,
-              color: Colors.green,
-              size: 100,
-            )
-          ],
-        )
-      ],
-    );
-  }
-}
-
-TextStyle myTextStyle() {
-  return TextStyle(fontSize: 15.0, color: Colors.white70);
-}
